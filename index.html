@@ -66,7 +66,6 @@
     --card-text:#1c2b38;
     --border:#dee3e6;
     --bg:#f1f0eb;
-    --teal:#2f6f62;
   }
 
   *{box-sizing:border-box;}
@@ -173,7 +172,6 @@
 
   /* ---------- Hero ---------- */
   .hero{padding:40px 0 30px; text-align:center; display:flex; flex-direction:column; align-items:center;}
-  .hero-content{display:flex; flex-direction:column; align-items:center;}
   h1{
     font-size:clamp(2.3rem, 6vw, 3.4rem);
     line-height:1.1;
@@ -183,32 +181,8 @@
     font-weight:600;
   }
   h1 em{font-style:italic; font-weight:700; color:var(--orange-ink);}
-  h1 em:nth-of-type(2){color:var(--teal);}
   .hero p.lede{font-size:1.08rem; color:var(--card-text); max-width:54ch; margin:16px 0 24px; text-align:center;}
   .cta-row{display:flex; gap:12px; flex-wrap:wrap; justify-content:center;}
-
-  .hero-visual{
-    position:relative; width:150px; height:150px; margin:28px auto 0;
-    display:flex; align-items:center; justify-content:center; flex:0 0 auto;
-  }
-  .hero-visual::before{
-    content:""; position:absolute; inset:-18%;
-    background:radial-gradient(circle, rgba(224,123,46,.16), rgba(47,111,98,.14) 55%, transparent 74%);
-    border-radius:50%;
-  }
-  .hero-visual svg{
-    position:relative; width:68%; height:68%;
-    fill:none; stroke:var(--navy); stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round;
-  }
-  .hero-visual svg .accent-a{stroke:none; fill:var(--orange-ink);}
-  .hero-visual svg .accent-b{stroke:none; fill:var(--teal);}
-  @media (min-width:820px){
-    .hero{flex-direction:row; align-items:center; justify-content:space-between; gap:36px; text-align:left; padding:56px 0 46px;}
-    .hero-content{align-items:flex-start; flex:1 1 auto;}
-    .hero p.lede{text-align:left; margin-left:0;}
-    .cta-row{justify-content:flex-start;}
-    .hero-visual{width:210px; height:210px; margin:0; flex:0 0 210px;}
-  }
 
   .btn{
     font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -283,7 +257,6 @@
   .ruta .ruta-more summary:hover{background:#f0f4f8; border-color:#c3d1dd;}
   .ruta .ruta-more summary:focus-visible{outline:2px solid var(--blue); outline-offset:3px;}
   .ruta .ruta-more p{margin-top:12px;}
-  .rutas .ruta:nth-child(2) .tab{color:var(--teal);}
   @media (max-width:620px){ .rutas{grid-template-columns:1fr;} }
 
   /* ---------- Servicios ---------- */
@@ -457,28 +430,12 @@
   </nav>
 
   <section class="hero">
-    <div class="hero-content">
-      <h1>Asesoría legal para <em>personas</em> y <em>empresas</em></h1>
-      <p class="lede">Resuelvo sus dudas legales de forma clara y sencilla, ya sea frente a una situación cotidiana o un asunto relacionado con su negocio. Explore a continuación cómo puedo ayudarle y agende su consulta cuando esté listo.</p>
-      <div class="cta-row">
-        <a class="btn primary" href="#contacto">Agende una consulta</a>
-        <a class="btn ghost" href="#rutas">¿Cómo puedo ayudarle?</a>
-        <button type="button" class="btn ghost" onclick="document.getElementById('perfilModal').showModal()">Perfil profesional</button>
-      </div>
-    </div>
-    <div class="hero-visual" aria-hidden="true">
-      <svg viewBox="0 0 120 120">
-        <line x1="60" y1="20" x2="60" y2="98"/>
-        <line x1="38" y1="104" x2="82" y2="104"/>
-        <circle cx="60" cy="20" r="3.4" fill="var(--navy)" stroke="none"/>
-        <line x1="25" y1="26" x2="95" y2="26"/>
-        <line x1="25" y1="26" x2="25" y2="54"/>
-        <line x1="95" y1="26" x2="95" y2="54"/>
-        <path d="M14 54 Q25 72 36 54"/>
-        <path d="M84 54 Q95 72 106 54"/>
-        <circle class="accent-a" cx="25" cy="63" r="4.5"/>
-        <circle class="accent-b" cx="95" cy="63" r="4.5"/>
-      </svg>
+    <h1>Asesoría legal para <em>personas</em> y <em>empresas</em></h1>
+    <p class="lede">Resuelvo sus dudas legales de forma clara y sencilla, ya sea frente a una situación cotidiana o un asunto relacionado con su negocio. Explore a continuación cómo puedo ayudarle y agende su consulta cuando esté listo.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="#contacto">Agende una consulta</a>
+      <a class="btn ghost" href="#rutas">¿Cómo puedo ayudarle?</a>
+      <button type="button" class="btn ghost" onclick="document.getElementById('perfilModal').showModal()">Perfil profesional</button>
     </div>
   </section>
 
