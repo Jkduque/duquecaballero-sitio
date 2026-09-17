@@ -185,17 +185,22 @@
   .hero-intro{
     display:flex; align-items:center; gap:10px; margin:0 0 22px;
     font-size:0.92rem; color:var(--muted-text); font-weight:600;
-    font-family:inherit; background:none; border:none; padding:4px 6px; border-radius:14px;
-    cursor:pointer; transition:background .18s ease;
+    font-family:inherit; background:#fff; border:1px solid var(--border);
+    padding:6px 18px 6px 6px; border-radius:999px; box-shadow:0 2px 10px rgba(13,36,56,.06);
+    cursor:pointer; transition:background .18s ease, box-shadow .18s ease, border-color .18s ease, transform .18s ease;
   }
-  .hero-intro:hover{background:rgba(13,36,56,.05);}
-  .hero-intro:hover span:first-of-type{color:var(--navy); text-decoration:underline;}
+  .hero-intro:hover{
+    background:#fff8f0; border-color:var(--orange-2);
+    box-shadow:0 6px 16px rgba(13,36,56,.10); transform:translateY(-1px);
+  }
+  .hero-intro:hover span:first-of-type{color:var(--navy);}
+  .hero-intro:hover .hero-intro-arrow{transform:translateX(3px);}
   .hero-intro:focus-visible{outline:2px solid var(--blue); outline-offset:3px;}
   .hero-intro img{
     width:42px; height:42px; border-radius:50%; object-fit:cover;
     border:2px solid #fff; box-shadow:0 2px 8px rgba(13,36,56,.18);
   }
-  .hero-intro-arrow{color:var(--orange-ink); font-weight:700;}
+  .hero-intro-arrow{color:var(--orange-ink); font-weight:700; transition:transform .18s ease;}
   .cta-row{display:flex; gap:12px; flex-wrap:wrap; justify-content:center;}
 
   .btn{
@@ -451,7 +456,7 @@
     <p class="lede">Resuelvo sus dudas legales de forma clara y sencilla, ya sea frente a una situación cotidiana o un asunto relacionado con su negocio. Explore a continuación cómo puedo ayudarle y agende su consulta cuando esté listo.</p>
     <button type="button" class="hero-intro" onclick="document.getElementById('perfilModal').showModal()">
       <img src="profile-photo.jpg" alt="Juan Duque Caballero">
-      <span>Hola, soy Juan. Conversemos sobre su caso.</span>
+      <span>Hola, soy Juan. Conozca un poco más sobre mí.</span>
       <span class="hero-intro-arrow" aria-hidden="true">→</span>
     </button>
     <div class="cta-row">
