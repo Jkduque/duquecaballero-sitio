@@ -314,14 +314,10 @@
   .servicio-more[open] summary::after{content:"−";}
   .servicio-more summary:hover h3{color:var(--orange-ink);}
   .servicio-more summary:focus-visible{outline:2px solid var(--blue); outline-offset:3px; border-radius:8px;}
-  .servicio.servicio-aliados{
-    background:#fff4e8; border:1px solid var(--orange-2);
-    display:flex; flex-direction:column; align-items:flex-start;
-  }
-  .servicio.servicio-aliados h3{color:var(--navy); font-size:1.05rem; margin-bottom:8px;}
-  .servicio.servicio-aliados p{margin-bottom:16px;}
+  .servicio.servicio-aliados{background:#fff4e8; border:1px solid var(--orange-2);}
   .servicio.servicio-aliados .servicio-icon-wrap{background:#fff;}
   .servicio.servicio-aliados .servicio-icon{color:var(--orange-ink);}
+  .servicio-aliados-btn{margin-top:14px;}
   @media (max-width:620px){ .servicios{grid-template-columns:1fr;} }
 
   /* ---------- Por qué trabajar conmigo ---------- */
@@ -606,9 +602,11 @@
       </div>
       <div class="servicio servicio-aliados reveal-item">
         <span class="servicio-icon-wrap"><svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg></span>
-        <h3>¿No encontró lo que buscaba?</h3>
-        <p>Igual le puedo ayudar. Cuento con aliados estratégicos para resolver, en conjunto, lo que no esté contemplado en este listado.</p>
-        <a class="btn orange" href="https://wa.me/573175052311" target="_blank" rel="noopener">Escríbame por WhatsApp</a>
+        <details class="servicio-more">
+          <summary><h3>¿No encontró lo que buscaba?</h3></summary>
+          <p>Igual le puedo ayudar. Cuento con aliados estratégicos para resolver, en conjunto, lo que no esté contemplado en este listado.</p>
+          <a class="btn orange servicio-aliados-btn" href="https://wa.me/573175052311" target="_blank" rel="noopener">Escríbame por WhatsApp</a>
+        </details>
       </div>
     </div>
     <div class="section-next">
@@ -925,7 +923,7 @@
       }
     });
     clickTarget.addEventListener('click', function (e) {
-      if (isServicio && e.target.closest('p')) return;
+      if (isServicio && e.target.closest('p, a')) return;
       e.preventDefault();
       if (details.open) {
         content.style.maxHeight = content.scrollHeight + 'px';
