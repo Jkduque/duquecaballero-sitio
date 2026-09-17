@@ -314,11 +314,14 @@
   .servicio-more[open] summary::after{content:"−";}
   .servicio-more summary:hover h3{color:var(--orange-ink);}
   .servicio-more summary:focus-visible{outline:2px solid var(--blue); outline-offset:3px; border-radius:8px;}
-  .servicio.servicio-aliados{background:transparent; border:1px dashed var(--muted); box-shadow:none;}
-  .servicio.servicio-aliados:hover{transform:none; box-shadow:none;}
-  .servicio.servicio-aliados h3{color:var(--orange-ink); font-size:1rem;}
-  .servicio.servicio-aliados .servicio-icon-wrap{background:transparent; border:1px dashed var(--muted);}
-  .servicio.servicio-aliados .servicio-icon{color:var(--muted-text);}
+  .servicio.servicio-aliados{
+    background:#fff4e8; border:1px solid var(--orange-2);
+    display:flex; flex-direction:column; align-items:flex-start;
+  }
+  .servicio.servicio-aliados h3{color:var(--navy); font-size:1.05rem; margin-bottom:8px;}
+  .servicio.servicio-aliados p{margin-bottom:16px;}
+  .servicio.servicio-aliados .servicio-icon-wrap{background:#fff;}
+  .servicio.servicio-aliados .servicio-icon{color:var(--orange-ink);}
   @media (max-width:620px){ .servicios{grid-template-columns:1fr;} }
 
   /* ---------- Por qué trabajar conmigo ---------- */
@@ -603,8 +606,9 @@
       </div>
       <div class="servicio servicio-aliados reveal-item">
         <span class="servicio-icon-wrap"><svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg></span>
-        <h3>¿Su necesidad no está aquí?</h3>
-        <p>Para materias o especialidades que no estén contempladas directamente en este listado, cuento con aliados estratégicos con quienes, en conjunto, podemos dar solución a su situación.</p>
+        <h3>¿No encontró lo que buscaba?</h3>
+        <p>Igual le puedo ayudar. Cuento con aliados estratégicos para resolver, en conjunto, lo que no esté contemplado en este listado.</p>
+        <a class="btn orange" href="https://wa.me/573175052311" target="_blank" rel="noopener">Escríbame por WhatsApp</a>
       </div>
     </div>
     <div class="section-next">
@@ -906,6 +910,9 @@
   document.querySelectorAll('.faq-item, .servicio-more').forEach(function (details) {
     var summary = details.querySelector('summary');
     var content = details.querySelector('p');
+    var isServicio = details.classList.contains('servicio-more');
+    var clickTarget = isServicio ? (details.closest('.servicio') || details) : summary;
+    if (isServicio) clickTarget.style.cursor = 'pointer';
     if (faqReduceMotion) return;
     content.style.overflow = 'hidden';
     content.style.transition = 'max-height .3s ease, opacity .25s ease, margin-top .3s ease';
@@ -917,7 +924,8 @@
         content.style.maxHeight = 'none';
       }
     });
-    summary.addEventListener('click', function (e) {
+    clickTarget.addEventListener('click', function (e) {
+      if (isServicio && e.target.closest('p')) return;
       e.preventDefault();
       if (details.open) {
         content.style.maxHeight = content.scrollHeight + 'px';
