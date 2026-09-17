@@ -376,8 +376,18 @@
   /* ---------- Dinamismo: aparición al hacer scroll ---------- */
   .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
   .reveal.is-visible{opacity:1; transform:none;}
+  .reveal-item{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease;}
+  .reveal-item.is-visible{opacity:1; transform:none;}
+  .reveal-item:nth-child(1){transition-delay:0ms;}
+  .reveal-item:nth-child(2){transition-delay:70ms;}
+  .reveal-item:nth-child(3){transition-delay:140ms;}
+  .reveal-item:nth-child(4){transition-delay:210ms;}
+  .reveal-item:nth-child(5){transition-delay:280ms;}
+  .reveal-item:nth-child(6){transition-delay:350ms;}
+  .reveal-item:nth-child(7){transition-delay:420ms;}
+  .reveal-item:nth-child(8){transition-delay:490ms;}
   @media (prefers-reduced-motion: reduce){
-    .reveal{opacity:1; transform:none; transition:none;}
+    .reveal, .reveal-item{opacity:1; transform:none; transition:none;}
   }
 
   /* ---------- Floating WhatsApp ---------- */
@@ -443,8 +453,8 @@
 
   <section id="rutas">
     <div class="section-head"><span class="label">Dos rutas, un mismo abogado</span><span class="rule"></span></div>
-    <div class="rutas reveal">
-      <div class="ruta">
+    <div class="rutas">
+      <div class="ruta reveal-item">
         <span class="tab">PARA USTED</span>
         <h3>Persona natural</h3>
         <p>¿Enfrenta una situación legal y no sabe cómo proceder?</p>
@@ -453,7 +463,7 @@
           <p>Desde un contrato de arrendamiento, un conflicto de propiedad, un derecho de petición, hasta un trámite ante una entidad pública, le explico sus opciones con claridad y lo acompaño en cada etapa.</p>
         </details>
       </div>
-      <div class="ruta">
+      <div class="ruta reveal-item">
         <span class="tab">PARA SU EMPRESA</span>
         <h3>Persona jurídica</h3>
         <p>¿Su empresa requiere respaldo jurídico?</p>
@@ -471,43 +481,43 @@
 
   <section id="servicios">
     <div class="section-head"><span class="label">Servicios</span><span class="rule"></span></div>
-    <div class="servicios reveal">
-      <div class="servicio">
+    <div class="servicios">
+      <div class="servicio reveal-item">
         <svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg>
         <h3>Derecho Inmobiliario</h3>
         <p>Asesoría en transacciones inmobiliarias, con verificación y debida diligencia documental sobre bienes, servidumbres y usufructos antes de cada cierre. Redacción y negociación de contratos de compraventa y arrendamiento, y acompañamiento en la resolución de conflictos de propiedad.</p>
       </div>
-      <div class="servicio">
+      <div class="servicio reveal-item">
         <svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="7" width="19" height="13" rx="2"/><path d="M8.5 7V5.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2V7"/><path d="M2.5 13h19"/></svg>
         <h3>Derecho Societario</h3>
         <p>Constitución y estructuración de sociedades, con acompañamiento en cada etapa, desde la elección del tipo societario más adecuado hasta su formalización ante Cámara de Comercio.</p>
       </div>
-      <div class="servicio">
+      <div class="servicio reveal-item">
         <svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/></svg>
         <h3>Derecho Tributario</h3>
         <p>Planeación tributaria orientada a optimizar la carga fiscal de su empresa desde su constitución y a lo largo de su operación. Acompañamiento en actuaciones administrativas ante la DIAN, incluyendo la atención de requerimientos y procedimientos derivados de la relación con la autoridad tributaria.</p>
       </div>
-      <div class="servicio">
+      <div class="servicio reveal-item">
         <svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c5 0 8 4 8 9 0 4-3 8-8 9-5-1-8-5-8-9 0-5 3-9 8-9z"/><path d="M12 21V9"/></svg>
         <h3>Derecho Ambiental</h3>
         <p>Representación ante autoridades ambientales en procedimientos sancionatorios, incluyendo la estructuración de recursos orientados a mitigar o evitar sanciones.</p>
       </div>
-      <div class="servicio">
+      <div class="servicio reveal-item">
         <svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20"/><path d="M5 6h14"/><path d="M5 6 2 13a3.5 3.5 0 0 0 7 0z"/><path d="M19 6l-3 7a3.5 3.5 0 0 0 7 0z"/></svg>
         <h3>Resolución de Conflictos y Conciliación</h3>
         <p>Acompañamiento en la búsqueda de acuerdos entre las partes mediante mecanismos alternativos de resolución de conflictos, en aras de evitar las instancias judiciales.</p>
       </div>
-      <div class="servicio">
+      <div class="servicio reveal-item">
         <svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6.5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8.5 13h7"/><path d="M8.5 17h7"/></svg>
         <h3>Gestión y Estructuración de Contratos</h3>
         <p>Elaboración, estructuración y administración integral de contratos, con seguimiento documental que garantiza cumplimiento y trazabilidad frente a las partes involucradas.</p>
       </div>
-      <div class="servicio">
+      <div class="servicio reveal-item">
         <svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 3.5 6v6c0 5 3.5 8.5 8.5 10 5-1.5 8.5-5 8.5-10V6z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg>
         <h3>Procesos Civiles</h3>
         <p>Gestión y seguimiento de procesos civiles, con revisión documental permanente que fortalece la posición legal de cada cliente a lo largo del proceso.</p>
       </div>
-      <div class="servicio servicio-aliados">
+      <div class="servicio servicio-aliados reveal-item">
         <svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg>
         <h3>¿Su necesidad no está aquí?</h3>
         <p>Para materias o especialidades que no estén contempladas directamente en este listado, cuento con aliados estratégicos con quienes, en conjunto, podemos dar solución a su situación.</p>
@@ -521,29 +531,29 @@
 
   <section id="porque">
     <div class="section-head"><span class="label">¿Por qué trabajar conmigo?</span><span class="rule"></span></div>
-    <div class="porque reveal">
-      <div class="item">
+    <div class="porque">
+      <div class="item reveal-item">
         <span class="glyph">“</span>
         <div>
           <h4>Comunicación clara y directa</h4>
           <p>Cada situación se explica con palabras simples y directas.</p>
         </div>
       </div>
-      <div class="item">
+      <div class="item reveal-item">
         <span class="glyph">“</span>
         <div>
           <h4>Atención personalizada</h4>
           <p>Su caso es atendido personalmente, con seguimiento cercano y un criterio jurídico consistente de principio a fin, brindando una respuesta oportuna en cada etapa del proceso.</p>
         </div>
       </div>
-      <div class="item">
+      <div class="item reveal-item">
         <span class="glyph">“</span>
         <div>
           <h4>Honorarios justos y accesibles</h4>
           <p>El valor de cada servicio se acuerda con usted antes de iniciar, de forma clara y sin letra menuda.</p>
         </div>
       </div>
-      <div class="item">
+      <div class="item reveal-item">
         <span class="glyph">“</span>
         <div>
           <h4>Enfoque actualizado y conciliador</h4>
@@ -559,16 +569,16 @@
 
   <section id="proceso">
     <div class="section-head"><span class="label">¿Cómo trabajo?</span><span class="rule"></span></div>
-    <div class="pasos reveal">
-      <div class="paso">
+    <div class="pasos">
+      <div class="paso reveal-item">
         <h4>Consulta inicial</h4>
         <p>Usted expone su situación o necesidad.</p>
       </div>
-      <div class="paso">
+      <div class="paso reveal-item">
         <h4>Diagnóstico y opciones</h4>
         <p>Se le presenta un análisis claro del caso y las alternativas disponibles.</p>
       </div>
-      <div class="paso">
+      <div class="paso reveal-item">
         <h4>Acuerdo de alcance y honorarios</h4>
         <p>Antes de iniciar cualquier actuación, se define y acuerda formalmente el alcance del servicio y la tarifa correspondiente.</p>
       </div>
@@ -681,11 +691,11 @@
         }
       });
     }, { threshold: 0.15 });
-    document.querySelectorAll('.reveal').forEach(function (el) {
+    document.querySelectorAll('.reveal, .reveal-item').forEach(function (el) {
       revealObserver.observe(el);
     });
   } else {
-    document.querySelectorAll('.reveal').forEach(function (el) {
+    document.querySelectorAll('.reveal, .reveal-item').forEach(function (el) {
       el.classList.add('is-visible');
     });
   }
@@ -754,6 +764,62 @@
       if (agendaModalEl) agendaModalEl.close();
     });
   }
+</script>
+
+<script>
+  var canHoverFine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (canHoverFine && !reduceMotion) {
+    document.querySelectorAll('.ruta, .servicio').forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5;
+        var y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = 'perspective(700px) rotateX(' + (-y * 3.5) + 'deg) rotateY(' + (x * 3.5) + 'deg) translateY(-4px)';
+      });
+      card.addEventListener('mouseleave', function () {
+        card.style.transform = '';
+      });
+    });
+  }
+</script>
+
+<script>
+  var faqReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.faq-item').forEach(function (details) {
+    var summary = details.querySelector('summary');
+    var content = details.querySelector('p');
+    if (faqReduceMotion) return;
+    content.style.overflow = 'hidden';
+    content.style.transition = 'max-height .3s ease, opacity .25s ease, margin-top .3s ease';
+    content.style.maxHeight = '0px';
+    content.style.opacity = '0';
+    content.style.marginTop = '0px';
+    content.addEventListener('transitionend', function (e) {
+      if (e.propertyName === 'max-height' && details.open) {
+        content.style.maxHeight = 'none';
+      }
+    });
+    summary.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (details.open) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        requestAnimationFrame(function () {
+          content.style.maxHeight = '0px';
+          content.style.opacity = '0';
+          content.style.marginTop = '0px';
+        });
+        setTimeout(function () { details.open = false; }, 300);
+      } else {
+        details.open = true;
+        requestAnimationFrame(function () {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          content.style.opacity = '1';
+          content.style.marginTop = '12px';
+        });
+      }
+    });
+  });
 </script>
 </body>
 </html>
