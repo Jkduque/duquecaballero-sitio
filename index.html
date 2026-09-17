@@ -66,6 +66,7 @@
     --card-text:#1c2b38;
     --border:#dee3e6;
     --bg:#f1f0eb;
+    --teal:#2f6f62;
   }
 
   *{box-sizing:border-box;}
@@ -172,15 +173,21 @@
 
   /* ---------- Hero ---------- */
   .hero{padding:40px 0 30px; text-align:center; display:flex; flex-direction:column; align-items:center;}
+  .hero-kicker{
+    display:inline-block; font-size:0.78rem; font-weight:700; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--teal); margin-bottom:14px;
+  }
   h1{
-    font-size:clamp(2.1rem, 5vw, 2.9rem);
-    line-height:1.16;
-    margin:0 0 16px;
+    font-size:clamp(2.3rem, 6vw, 3.4rem);
+    line-height:1.1;
+    letter-spacing:-0.01em;
+    margin:0 0 18px;
     color:var(--navy);
     font-weight:600;
   }
-  h1 em{font-style:italic; color:var(--orange-ink);}
-  .hero p.lede{font-size:1.05rem; color:var(--card-text); max-width:54ch; margin:16px 0 24px; text-align:center;}
+  h1 em{font-style:italic; font-weight:700; color:var(--orange-ink);}
+  h1 em:nth-of-type(2){color:var(--teal);}
+  .hero p.lede{font-size:1.08rem; color:var(--card-text); max-width:54ch; margin:16px 0 24px; text-align:center;}
   .cta-row{display:flex; gap:12px; flex-wrap:wrap; justify-content:center;}
 
   .btn{
@@ -256,6 +263,7 @@
   .ruta .ruta-more summary:hover{background:#f0f4f8; border-color:#c3d1dd;}
   .ruta .ruta-more summary:focus-visible{outline:2px solid var(--blue); outline-offset:3px;}
   .ruta .ruta-more p{margin-top:12px;}
+  .rutas .ruta:nth-child(2) .tab{color:var(--teal);}
   @media (max-width:620px){ .rutas{grid-template-columns:1fr;} }
 
   /* ---------- Servicios ---------- */
@@ -429,6 +437,7 @@
   </nav>
 
   <section class="hero">
+    <span class="hero-kicker">Medellín, Colombia</span>
     <h1>Asesoría legal para <em>personas</em> y <em>empresas</em></h1>
     <p class="lede">Resuelvo sus dudas legales de forma clara y sencilla, ya sea frente a una situación cotidiana o un asunto relacionado con su negocio. Explore a continuación cómo puedo ayudarle y agende su consulta cuando esté listo.</p>
     <div class="cta-row">
