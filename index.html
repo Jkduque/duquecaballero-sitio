@@ -340,6 +340,8 @@
   .modal-body.agenda-modal-body{align-items:stretch; text-align:left; width:100%;}
   .agenda-option h4{font-size:1.02rem; margin:0 0 6px; color:var(--navy);}
   .agenda-option > p{margin:0 0 14px; color:var(--card-text); font-size:0.95rem;}
+  .agenda-cta-hint{text-align:center; font-weight:700; color:var(--orange-ink); font-size:0.92rem; margin:0 0 10px;}
+  .agenda-cta-center{display:flex; justify-content:center;}
   .agenda-divider{
     display:flex; align-items:center; gap:12px; margin:22px 0 18px;
     font-size:0.78rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--muted-text); font-weight:700;
@@ -680,7 +682,10 @@
       <div class="agenda-option">
         <h4>Asesoría virtual</h4>
         <p>Agende directamente en mi calendario, eligiendo el horario disponible que más le convenga.</p>
-        <a class="btn orange" href="https://calendar.app.google/enwUZ7uCK5YDsn1W9" target="_blank" rel="noopener">Agendar asesoría virtual</a>
+        <p class="agenda-cta-hint">Para agendar su cita virtual, haga clic aquí ↓</p>
+        <div class="agenda-cta-center">
+          <a class="btn orange" href="https://calendar.app.google/enwUZ7uCK5YDsn1W9" target="_blank" rel="noopener">Agendar asesoría virtual</a>
+        </div>
       </div>
 
       <div class="agenda-divider"><span>O si prefiere una cita presencial</span></div>
