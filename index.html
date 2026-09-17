@@ -182,6 +182,14 @@
   }
   h1 em{font-style:italic; font-weight:700; color:var(--orange-ink);}
   .hero p.lede{font-size:1.08rem; color:var(--card-text); max-width:54ch; margin:16px 0 24px; text-align:center;}
+  .hero-intro{
+    display:flex; align-items:center; gap:10px; margin:0 0 22px;
+    font-size:0.92rem; color:var(--muted-text); font-weight:600;
+  }
+  .hero-intro img{
+    width:42px; height:42px; border-radius:50%; object-fit:cover;
+    border:2px solid #fff; box-shadow:0 2px 8px rgba(13,36,56,.18);
+  }
   .cta-row{display:flex; gap:12px; flex-wrap:wrap; justify-content:center;}
 
   .btn{
@@ -435,6 +443,10 @@
   <section class="hero">
     <h1>Asesoría legal para <em>personas</em> y <em>empresas</em></h1>
     <p class="lede">Resuelvo sus dudas legales de forma clara y sencilla, ya sea frente a una situación cotidiana o un asunto relacionado con su negocio. Explore a continuación cómo puedo ayudarle y agende su consulta cuando esté listo.</p>
+    <div class="hero-intro">
+      <img src="profile-photo.jpg" alt="Juan Duque Caballero">
+      <span>Hola, soy Juan. Conversemos sobre su caso.</span>
+    </div>
     <div class="cta-row">
       <a class="btn primary" href="#contacto">Agende una consulta</a>
       <a class="btn ghost" href="#rutas">¿Cómo puedo ayudarle?</a>
