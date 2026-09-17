@@ -289,16 +289,23 @@
     transition:transform .22s ease, box-shadow .22s ease;
   }
   .servicio:hover{transform:translateY(-4px); box-shadow:0 18px 40px rgba(13,36,56,.10);}
+  .servicio-icon-wrap{
+    width:52px; height:52px; border-radius:50%; margin-bottom:14px;
+    display:flex; align-items:center; justify-content:center;
+    background:#fff4e8;
+  }
   .servicio-icon{
-    width:30px; height:30px; margin-bottom:12px;
+    width:24px; height:24px; margin-bottom:0;
     color:var(--orange-ink);
     fill:none; stroke:currentColor; stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round;
   }
+  .servicios .servicio:nth-child(even) .servicio-icon-wrap{background:#eef2f6;}
   .servicio h3{font-size:1.05rem; margin:0 0 8px; color:var(--navy);}
   .servicio p{margin:0; color:var(--card-text); font-size:0.92rem; text-align:left;}
   .servicio.servicio-aliados{background:transparent; border:1px dashed var(--muted); box-shadow:none;}
   .servicio.servicio-aliados:hover{transform:none; box-shadow:none;}
   .servicio.servicio-aliados h3{color:var(--orange-ink); font-size:1rem;}
+  .servicio.servicio-aliados .servicio-icon-wrap{background:transparent; border:1px dashed var(--muted);}
   .servicio.servicio-aliados .servicio-icon{color:var(--muted-text);}
   @media (max-width:620px){ .servicios{grid-template-columns:1fr;} }
 
@@ -534,42 +541,42 @@
     <div class="section-head"><span class="label">Servicios</span><span class="rule"></span></div>
     <div class="servicios">
       <div class="servicio reveal-item">
-        <svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg>
+        <span class="servicio-icon-wrap"><svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></span>
         <h3>Derecho Inmobiliario</h3>
         <p>Lo asesoro en transacciones inmobiliarias, verificando y realizando la debida diligencia documental sobre bienes, servidumbres y usufructos antes de cada cierre. Redacto y negocio contratos de compraventa y arrendamiento, y lo acompaño en la resolución de conflictos de propiedad.</p>
       </div>
       <div class="servicio reveal-item">
-        <svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="7" width="19" height="13" rx="2"/><path d="M8.5 7V5.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2V7"/><path d="M2.5 13h19"/></svg>
+        <span class="servicio-icon-wrap"><svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="7" width="19" height="13" rx="2"/><path d="M8.5 7V5.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2V7"/><path d="M2.5 13h19"/></svg></span>
         <h3>Derecho Societario</h3>
         <p>Constituyo y estructuro su sociedad, acompañándolo en cada etapa, desde la elección del tipo societario más adecuado hasta su formalización ante Cámara de Comercio.</p>
       </div>
       <div class="servicio reveal-item">
-        <svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/></svg>
+        <span class="servicio-icon-wrap"><svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/></svg></span>
         <h3>Derecho Tributario</h3>
         <p>Realizo la planeación tributaria orientada a optimizar la carga fiscal de su empresa desde su constitución y a lo largo de su operación. Lo acompaño en actuaciones administrativas ante la DIAN, incluyendo la atención de requerimientos y procedimientos derivados de la relación con la autoridad tributaria.</p>
       </div>
       <div class="servicio reveal-item">
-        <svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c5 0 8 4 8 9 0 4-3 8-8 9-5-1-8-5-8-9 0-5 3-9 8-9z"/><path d="M12 21V9"/></svg>
+        <span class="servicio-icon-wrap"><svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c5 0 8 4 8 9 0 4-3 8-8 9-5-1-8-5-8-9 0-5 3-9 8-9z"/><path d="M12 21V9"/></svg></span>
         <h3>Derecho Ambiental</h3>
         <p>Lo represento ante autoridades ambientales en procedimientos sancionatorios, incluyendo la estructuración de recursos orientados a mitigar o evitar sanciones.</p>
       </div>
       <div class="servicio reveal-item">
-        <svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20"/><path d="M5 6h14"/><path d="M5 6 2 13a3.5 3.5 0 0 0 7 0z"/><path d="M19 6l-3 7a3.5 3.5 0 0 0 7 0z"/></svg>
+        <span class="servicio-icon-wrap"><svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20"/><path d="M5 6h14"/><path d="M5 6 2 13a3.5 3.5 0 0 0 7 0z"/><path d="M19 6l-3 7a3.5 3.5 0 0 0 7 0z"/></svg></span>
         <h3>Resolución de Conflictos y Conciliación</h3>
         <p>Lo acompaño en la búsqueda de acuerdos entre las partes mediante mecanismos alternativos de resolución de conflictos, en aras de evitar las instancias judiciales.</p>
       </div>
       <div class="servicio reveal-item">
-        <svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6.5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8.5 13h7"/><path d="M8.5 17h7"/></svg>
+        <span class="servicio-icon-wrap"><svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6.5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8.5 13h7"/><path d="M8.5 17h7"/></svg></span>
         <h3>Gestión y Estructuración de Contratos</h3>
         <p>Elaboro, estructuro y administro integralmente sus contratos, con un seguimiento documental que garantiza cumplimiento y trazabilidad frente a las partes involucradas.</p>
       </div>
       <div class="servicio reveal-item">
-        <svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 3.5 6v6c0 5 3.5 8.5 8.5 10 5-1.5 8.5-5 8.5-10V6z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg>
+        <span class="servicio-icon-wrap"><svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 3.5 6v6c0 5 3.5 8.5 8.5 10 5-1.5 8.5-5 8.5-10V6z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg></span>
         <h3>Procesos Civiles</h3>
         <p>Gestiono y hago seguimiento a sus procesos civiles, con revisión documental permanente que fortalece su posición legal a lo largo del proceso.</p>
       </div>
       <div class="servicio servicio-aliados reveal-item">
-        <svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg>
+        <span class="servicio-icon-wrap"><svg class="servicio-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg></span>
         <h3>¿Su necesidad no está aquí?</h3>
         <p>Para materias o especialidades que no estén contempladas directamente en este listado, cuento con aliados estratégicos con quienes, en conjunto, podemos dar solución a su situación.</p>
       </div>
