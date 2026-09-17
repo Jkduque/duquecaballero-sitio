@@ -403,17 +403,8 @@
   @media (max-width:480px){ .modal-body{padding:32px 22px 26px;} }
   @media (max-width:700px){
     .modal-photos{position:relative; width:150px; height:150px; margin:0 auto 18px;}
-    .modal-photos img{position:absolute; inset:0; margin:0; animation:modalPhotoFade 10s ease-in-out infinite;}
-    .modal-photo-desk{animation-delay:-5s;}
-  }
-  @keyframes modalPhotoFade{
-    0%, 45%{opacity:1;}
-    50%, 95%{opacity:0;}
-    100%{opacity:1;}
-  }
-  @media (prefers-reduced-motion: reduce){
-    .modal-photos img{animation:none;}
-    .modal-photo-desk{opacity:0;}
+    .modal-photos img{position:absolute; inset:0; margin:0; opacity:0; transition:opacity .6s ease;}
+    .modal-photos img.is-active{opacity:1;}
   }
 
   /* ---------- Dinamismo: aparición al hacer scroll ---------- */
@@ -729,6 +720,36 @@
   agendaModal.addEventListener('click', function (e) {
     if (e.target === agendaModal) agendaModal.close();
   });
+
+  var photoGroup = document.querySelector('.modal-photos');
+  if (photoGroup) {
+    var photoImgs = photoGroup.querySelectorAll('img');
+    var narrowQuery = window.matchMedia('(max-width:700px)');
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var photoIndex = 0;
+    var photoTimer = null;
+    function showPhoto(i) {
+      photoImgs.forEach(function (img, idx) { img.classList.toggle('is-active', idx === i); });
+    }
+    function startRotation() {
+      if (photoTimer || photoImgs.length < 2) return;
+      showPhoto(0);
+      photoTimer = setInterval(function () {
+        photoIndex = (photoIndex + 1) % photoImgs.length;
+        showPhoto(photoIndex);
+      }, 4500);
+    }
+    function stopRotation() {
+      if (photoTimer) { clearInterval(photoTimer); photoTimer = null; }
+      photoImgs.forEach(function (img) { img.classList.remove('is-active'); });
+    }
+    function syncRotation() {
+      if (narrowQuery.matches && !reduceMotion.matches) startRotation();
+      else stopRotation();
+    }
+    syncRotation();
+    narrowQuery.addEventListener('change', syncRotation);
+  }
 </script>
 
 <script>
