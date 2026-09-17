@@ -389,9 +389,16 @@
   }
   .modal-close:hover{color:var(--navy);}
   .modal-body{display:flex; flex-direction:column; align-items:center; text-align:center; padding:40px 32px 34px;}
-  .modal-photos{display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:18px;}
-  .modal-photo{width:150px; height:150px; object-fit:cover; border-radius:50%; border:3px solid var(--orange-2); margin:0;}
-  .modal-photo-desk{width:150px; height:150px; object-fit:cover; border-radius:18px; border:3px solid var(--border); margin:0;}
+  .modal-photos{display:flex; align-items:center; justify-content:center; gap:36px; margin-bottom:22px;}
+  .modal-photo{
+    width:150px; height:150px; object-fit:cover; border-radius:18px; border:3px solid var(--orange-2); margin:0;
+    box-shadow:0 10px 24px rgba(13,36,56,.14); transform:rotate(-3deg); transition:transform .25s ease;
+  }
+  .modal-photo-desk{
+    width:150px; height:150px; object-fit:cover; border-radius:18px; border:3px solid var(--orange-2); margin:0;
+    box-shadow:0 10px 24px rgba(13,36,56,.14); transform:rotate(3deg); transition:transform .25s ease;
+  }
+  .modal-photo:hover, .modal-photo-desk:hover{transform:rotate(0deg) scale(1.04);}
   .modal-tab{font-size:0.75rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--orange-ink); font-weight:700; margin-bottom:6px;}
   .modal-text h3{font-size:1.3rem; margin:0 0 12px; color:var(--navy);}
   .modal-text p{margin:0 0 12px; color:var(--card-text); font-size:0.95rem; line-height:1.7; text-align:left; max-width:60ch;}
