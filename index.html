@@ -8,6 +8,15 @@
 <link rel="canonical" href="https://duquecaballero-sitio.vercel.app/">
 <meta name="google-site-verification" content="ttGJb8flPRoCa2iqmrPRuUSaR88xxrvV_hLCE7ypP3Y" />
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7VZ4EGND81"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7VZ4EGND81');
+</script>
+
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -1013,6 +1022,37 @@
       }
     });
   });
+</script>
+
+<script>
+  function gaTrack(name, params) {
+    if (typeof gtag === 'function') gtag('event', name, params || {});
+  }
+  document.querySelector('.hero-intro').addEventListener('click', function () {
+    gaTrack('ver_perfil');
+  });
+  document.querySelectorAll('button[onclick*="agendaModal"]').forEach(function (btn) {
+    btn.addEventListener('click', function () { gaTrack('abrir_agendar_cita'); });
+  });
+  var agendaVirtualBtn = document.querySelector('.agenda-choice-btn[href*="calendar.app.google"]');
+  if (agendaVirtualBtn) {
+    agendaVirtualBtn.addEventListener('click', function () { gaTrack('click_calendario_virtual'); });
+  }
+  var agendaPresencialBtn = document.getElementById('agendaChoicePresencial');
+  if (agendaPresencialBtn) {
+    agendaPresencialBtn.addEventListener('click', function () { gaTrack('elige_cita_presencial'); });
+  }
+  var agendaFormEl = document.getElementById('agendaForm');
+  if (agendaFormEl) {
+    agendaFormEl.addEventListener('submit', function () { gaTrack('envio_formulario_whatsapp'); });
+  }
+  document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function (link) {
+    link.addEventListener('click', function () { gaTrack('click_whatsapp'); });
+  });
+  var mailtoLink = document.querySelector('a[href^="mailto:"]');
+  if (mailtoLink) {
+    mailtoLink.addEventListener('click', function () { gaTrack('click_enviar_correo'); });
+  }
 </script>
 </body>
 </html>
