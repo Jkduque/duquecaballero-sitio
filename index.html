@@ -360,15 +360,31 @@
   .cta-final p{color:var(--card-text); max-width:52ch; margin:0 0 20px; text-align:left;}
 
   .modal-body.agenda-modal-body{align-items:stretch; text-align:left; width:100%;}
-  .agenda-option h4{font-size:1.02rem; margin:0 0 6px; color:var(--navy);}
-  .agenda-option > p{margin:0 0 14px; color:var(--card-text); font-size:0.95rem;}
-  .agenda-cta-hint{text-align:center; font-weight:700; color:var(--orange-ink); font-size:0.92rem; margin:0 0 10px;}
-  .agenda-cta-center{display:flex; justify-content:center;}
-  .agenda-divider{
-    display:flex; align-items:center; gap:12px; margin:22px 0 18px;
-    font-size:0.78rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--muted-text); font-weight:700;
+  .agenda-choice{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:18px 0 0;}
+  .agenda-choice-btn{
+    display:flex; align-items:center; gap:12px; text-align:left; width:100%;
+    background:var(--card-bg); border:1px solid var(--border); border-radius:16px;
+    padding:16px; text-decoration:none; cursor:pointer; font-family:inherit;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
   }
-  .agenda-divider::before, .agenda-divider::after{content:""; flex:1; height:1px; background:var(--border);}
+  .agenda-choice-btn:hover{transform:translateY(-3px); box-shadow:0 12px 28px rgba(13,36,56,.10); border-color:var(--orange-2);}
+  .agenda-choice-btn:focus-visible{outline:2px solid var(--blue); outline-offset:3px;}
+  .agenda-choice-btn.is-selected{border-color:var(--orange-ink); background:#fff4e8;}
+  .agenda-choice-icon{
+    width:44px; height:44px; border-radius:50%; flex:0 0 auto;
+    display:flex; align-items:center; justify-content:center;
+    background:#fff4e8; color:var(--orange-ink);
+  }
+  .agenda-choice-icon svg{width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round;}
+  .agenda-choice-label{display:block; font-weight:700; color:var(--navy); font-size:0.98rem;}
+  .agenda-choice-desc{display:block; color:var(--muted-text); font-size:0.82rem; margin-top:2px;}
+  @media (max-width:560px){ .agenda-choice{grid-template-columns:1fr;} }
+  .agenda-form-panel{
+    overflow:hidden; max-height:0; opacity:0; margin-top:0;
+    transition:max-height .35s ease, opacity .3s ease, margin-top .35s ease;
+  }
+  .agenda-form-panel.is-open{opacity:1; margin-top:22px;}
+  .agenda-form-panel > p{margin:0 0 14px; color:var(--card-text); font-size:0.95rem;}
   .agenda-form{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:6px; min-width:0;}
   .agenda-form .field{display:flex; flex-direction:column; gap:6px; min-width:0;}
   .agenda-form label{font-size:0.85rem; font-weight:700; color:var(--navy);}
@@ -716,20 +732,26 @@
     <button type="button" class="modal-close" aria-label="Cerrar" onclick="document.getElementById('agendaModal').close()">&times;</button>
     <div class="modal-body agenda-modal-body">
       <span class="modal-tab">Agendar cita</span>
-      <h3>¿Cómo prefiere su asesoría?</h3>
+      <h3>¿Cómo quiere agendar su cita?</h3>
 
-      <div class="agenda-option">
-        <h4>Asesoría virtual</h4>
-        <p>Agende directamente en mi calendario, eligiendo el horario disponible que más le convenga.</p>
-        <p class="agenda-cta-hint">Para agendar su cita virtual, haga clic aquí ↓</p>
-        <div class="agenda-cta-center">
-          <a class="btn orange" href="https://calendar.app.google/enwUZ7uCK5YDsn1W9" target="_blank" rel="noopener">Agendar asesoría virtual</a>
-        </div>
+      <div class="agenda-choice">
+        <a class="agenda-choice-btn" href="https://calendar.app.google/enwUZ7uCK5YDsn1W9" target="_blank" rel="noopener">
+          <span class="agenda-choice-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 3v4"/><path d="M16 3v4"/></svg></span>
+          <span>
+            <span class="agenda-choice-label">Asesoría virtual</span>
+            <span class="agenda-choice-desc">Elija el horario en mi calendario</span>
+          </span>
+        </a>
+        <button type="button" class="agenda-choice-btn" id="agendaChoicePresencial">
+          <span class="agenda-choice-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 8.4 8.4 0 0 1-4-1L3 20l1-5.5a8.4 8.4 0 0 1-1-4A8.5 8.5 0 0 1 11.5 2 8.5 8.5 0 0 1 21 11.5z"/></svg></span>
+          <span>
+            <span class="agenda-choice-label">Cita presencial</span>
+            <span class="agenda-choice-desc">Coordinemos el lugar por WhatsApp</span>
+          </span>
+        </button>
       </div>
 
-      <div class="agenda-divider"><span>O si prefiere una cita presencial</span></div>
-
-      <div class="agenda-option">
+      <div class="agenda-form-panel" id="agendaFormPanel">
         <p>Escríbame primero por WhatsApp con sus datos, y coordinamos juntos el lugar y el horario.</p>
         <form id="agendaForm" class="agenda-form">
           <div class="field">
@@ -772,6 +794,32 @@
   agendaModal.addEventListener('click', function (e) {
     if (e.target === agendaModal) agendaModal.close();
   });
+
+  var agendaChoicePresencial = document.getElementById('agendaChoicePresencial');
+  var agendaFormPanel = document.getElementById('agendaFormPanel');
+  if (agendaChoicePresencial && agendaFormPanel) {
+    agendaChoicePresencial.addEventListener('click', function () {
+      var isOpen = agendaFormPanel.classList.contains('is-open');
+      if (isOpen) {
+        agendaFormPanel.style.maxHeight = agendaFormPanel.scrollHeight + 'px';
+        requestAnimationFrame(function () {
+          agendaFormPanel.classList.remove('is-open');
+          agendaFormPanel.style.maxHeight = '0px';
+        });
+        agendaChoicePresencial.classList.remove('is-selected');
+      } else {
+        agendaChoicePresencial.classList.add('is-selected');
+        agendaFormPanel.classList.add('is-open');
+        agendaFormPanel.style.maxHeight = agendaFormPanel.scrollHeight + 'px';
+        agendaFormPanel.addEventListener('transitionend', function onEnd(e) {
+          if (e.propertyName === 'max-height' && agendaFormPanel.classList.contains('is-open')) {
+            agendaFormPanel.style.maxHeight = 'none';
+          }
+          agendaFormPanel.removeEventListener('transitionend', onEnd);
+        });
+      }
+    });
+  }
 
   var photoGroup = document.querySelector('.modal-photos');
   if (photoGroup) {
